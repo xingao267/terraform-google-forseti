@@ -70,7 +70,7 @@ variable "admin_period" {
 
 variable "admin_disable_polling" {
   description = "Whether to disable polling for Admin API"
-  default     = "False"
+  default     = "false"
 }
 
 variable "appengine_max_calls" {
@@ -85,7 +85,7 @@ variable "appengine_period" {
 
 variable "appengine_disable_polling" {
   description = "Whether to disable polling for App Engine API"
-  default     = "False"
+  default     = "false"
 }
 
 variable "bigquery_max_calls" {
@@ -100,7 +100,7 @@ variable "bigquery_period" {
 
 variable "bigquery_disable_polling" {
   description = "Whether to disable polling for Big Query API"
-  default     = "False"
+  default     = "false"
 }
 
 variable "cloudasset_max_calls" {
@@ -115,7 +115,7 @@ variable "cloudasset_period" {
 
 variable "cloudasset_disable_polling" {
   description = "Whether to disable polling for Cloud Asset API"
-  default     = "False"
+  default     = "false"
 }
 
 variable "cloudbilling_max_calls" {
