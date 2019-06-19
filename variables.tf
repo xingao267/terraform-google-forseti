@@ -123,7 +123,7 @@ variable "admin_period" {
 
 variable "admin_disable_polling" {
   description = "Whether to disable polling for Admin API"
-  default     = "False"
+  default     = "false"
 }
 
 variable "appengine_max_calls" {
@@ -138,7 +138,7 @@ variable "appengine_period" {
 
 variable "appengine_disable_polling" {
   description = "Whether to disable polling for App Engine API"
-  default     = "False"
+  default     = "false"
 }
 
 variable "bigquery_max_calls" {
@@ -153,7 +153,7 @@ variable "bigquery_period" {
 
 variable "bigquery_disable_polling" {
   description = "Whether to disable polling for Big Query API"
-  default     = "False"
+  default     = "false"
 }
 
 variable "cloudasset_max_calls" {
@@ -168,7 +168,7 @@ variable "cloudasset_period" {
 
 variable "cloudasset_disable_polling" {
   description = "Whether to disable polling for Cloud Asset API"
-  default     = "False"
+  default     = "false"
 }
 
 variable "cloudbilling_max_calls" {
@@ -198,7 +198,7 @@ variable "compute_period" {
 
 variable "compute_disable_polling" {
   description = "Whether to disable polling for Compute API"
-  default     = "False"
+  default     = "false"
 }
 
 variable "container_max_calls" {
@@ -213,7 +213,7 @@ variable "container_period" {
 
 variable "container_disable_polling" {
   description = "Whether to disable polling for Container API"
-  default     = "False"
+  default     = "false"
 }
 
 variable "crm_max_calls" {
@@ -228,7 +228,7 @@ variable "crm_period" {
 
 variable "crm_disable_polling" {
   description = "Whether to disable polling for CRM API"
-  default     = "False"
+  default     = "false"
 }
 
 variable "iam_max_calls" {
@@ -243,7 +243,7 @@ variable "iam_period" {
 
 variable "iam_disable_polling" {
   description = "Whether to disable polling for IAM API"
-  default     = "False"
+  default     = "false"
 }
 
 variable "logging_max_calls" {
@@ -258,7 +258,7 @@ variable "logging_period" {
 
 variable "logging_disable_polling" {
   description = "Whether to disable polling for Logging API"
-  default     = "False"
+  default     = "false"
 }
 
 variable "securitycenter_max_calls" {
@@ -273,7 +273,7 @@ variable "securitycenter_period" {
 
 variable "securitycenter_disable_polling" {
   description = "Whether to disable polling for Security Center API"
-  default     = "False"
+  default     = "false"
 }
 
 variable "servicemanagement_max_calls" {
@@ -288,7 +288,7 @@ variable "servicemanagement_period" {
 
 variable "servicemanagement_disable_polling" {
   description = "Whether to disable polling for Service Management API"
-  default     = "False"
+  default     = "false"
 }
 
 variable "sqladmin_max_calls" {
@@ -303,12 +303,12 @@ variable "sqladmin_period" {
 
 variable "sqladmin_disable_polling" {
   description = "Whether to disable polling for SQL Admin API"
-  default     = "False"
+  default     = "false"
 }
 
 variable "storage_disable_polling" {
   description = "Whether to disable polling for Storage API"
-  default     = "False"
+  default     = "false"
 }
 
 variable "cai_api_timeout" {
@@ -588,7 +588,7 @@ variable "groups_settings_period" {
 
 variable "groups_settings_disable_polling" {
   description = "Whether to disable polling for the G Suite Groups API"
-  default     = "False"
+  default     = "false"
 }
 
 variable "groups_settings_enabled" {
