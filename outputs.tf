@@ -63,4 +63,3 @@ output "suffix" {
   description = "The random suffix appended to Forseti resources"
   value       = local.random_hash
 }
-

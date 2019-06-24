@@ -38,4 +38,3 @@ output "forseti-cloudsql-connection-name" {
   description = "The connection string to the CloudSQL instance"
   value       = google_sql_database_instance.master.connection_name
 }
-
