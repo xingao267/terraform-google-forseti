@@ -99,4 +99,3 @@ module "forseti-install-simple" {
   forseti_email_sender     = var.forseti_email_sender
   forseti_email_recipient  = var.forseti_email_recipient
 }
-

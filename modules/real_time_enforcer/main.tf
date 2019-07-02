@@ -222,4 +222,3 @@ resource "google_project_iam_member" "main" {
   role    = element(local.real_time_enforcer_project_roles, count.index)
   member  = "serviceAccount:${google_service_account.main.email}"
 }
-

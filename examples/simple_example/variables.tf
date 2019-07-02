@@ -66,4 +66,3 @@ variable "forseti_email_recipient" {
   description = "Forseti email recipient."
   default     = ""
 }
-

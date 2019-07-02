@@ -95,4 +95,3 @@ module "forseti" {
   client_private           = "true"
   server_private           = "true"
 }
-

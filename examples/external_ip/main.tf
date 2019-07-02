@@ -73,4 +73,3 @@ module "forseti-install-simple" {
     public_ptr_domain_name = var.public_ptr_domain_name
   }
 }
-

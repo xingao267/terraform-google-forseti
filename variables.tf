@@ -773,4 +773,3 @@ variable "sendgrid_api_key" {
   description = "Sendgrid.com API key to enable email notifications"
   default     = ""
 }
-

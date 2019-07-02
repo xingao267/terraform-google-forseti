@@ -33,4 +33,3 @@ output "forseti-rt-enforcer-storage-bucket" {
   description = "Forseti Enforcer storage bucket"
   value       = google_storage_bucket.main.name
 }
-

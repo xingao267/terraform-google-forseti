@@ -737,4 +737,3 @@ variable "groups_settings_violations_should_notify" {
   description = "Notify for groups settings violations"
   default     = "true"
 }
-
