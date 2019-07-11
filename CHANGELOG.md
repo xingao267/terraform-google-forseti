@@ -16,7 +16,7 @@ Extending the adopted spec, each change should have a link to its corresponding 
 
 ## [v2.3.0] - 2019-07-11
 
-## [v2.3.0] - 2019-07-10
+## [v2.3.0] - 2019-07-11
 
 ### Added
 
