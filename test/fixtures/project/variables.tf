@@ -19,9 +19,3 @@ variable "org_id" {
   description = "The ID of the organization in which resources will be provisioned."
   type        = string
 }
-
-variable "shared_vpc" {
-  default     = ""
-  description = "The ID of the project which hosts a shared VPC."
-  type        = string
-}

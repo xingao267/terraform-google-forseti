@@ -60,7 +60,6 @@ module "project_factory" {
   disable_services_on_destroy = true
   folder_id                   = var.folder_id
   random_project_id           = true
-  shared_vpc                  = var.shared_vpc
 }
 
 module "network" {
@@ -109,14 +108,6 @@ resource "google_organization_iam_member" "config_writer" {
   member = local.service_account_member
   org_id = var.org_id
   role   = "roles/logging.configWriter"
-}
-
-resource "google_project_iam_member" "host_compute_admin" {
-  count = var.shared_vpc == "" ? 0 : 1
-
-  member  = local.service_account_member
-  project = var.shared_vpc
-  role    = "roles/compute.admin"
 }
 
 resource "google_project_iam_member" "instance_admin" {
