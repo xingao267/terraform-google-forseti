@@ -14,6 +14,26 @@
  * limitations under the License.
  */
 
+provider "google" {
+  version = "~> 2.10.0"
+}
+
+provider "google-beta" {
+  version = "~> 2.10.0"
+}
+
+provider "local" {
+  version = "~> 1.2"
+}
+
+provider "null" {
+  version = "~> 2.1"
+}
+
+provider "random" {
+  version = "~> 2.1"
+}
+
 module "project_factory" {
   source  = "terraform-google-modules/project-factory/google"
   version = "~> 3.0"
