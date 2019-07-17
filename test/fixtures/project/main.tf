@@ -164,14 +164,6 @@ resource "google_project_iam_member" "pubsub_admin" {
   role    = "roles/pubsub.admin"
 }
 
-resource "google_project_iam_member" "enforcer_storage_admin" {
-  count = var.real_time_enforcer == "" ? 0 : 1
-
-  project = var.real_time_enforcer
-  role    = "roles/storage.admin"
-  member  = local.service_account_member
-}
-
 resource "google_service_account_key" "forseti" {
   service_account_id = "projects/${module.project_factory.project_id}/serviceAccounts/${module.project_factory.service_account_unique_id}"
 }

@@ -3,12 +3,6 @@ variable "billing_account" {
   type        = string
 }
 
-variable "real_time_enforcer" {
-  default     = ""
-  description = "The ID of the project in which the Real-Time Enforcer is deployed."
-  type        = string
-}
-
 variable "folder_id" {
   default     = ""
   description = "The ID of the folder in which projects will be provisioned."
