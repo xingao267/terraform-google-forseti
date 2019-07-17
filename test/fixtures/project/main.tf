@@ -69,7 +69,7 @@ module "network" {
   network_name = "forseti-test"
   project_id   = module.project_factory.project_id
 
-  secondary_ranges {
+  secondary_ranges = {
     forseti-test = []
   }
 
