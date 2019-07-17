@@ -19,6 +19,11 @@ variable "billing_account" {
   type        = string
 }
 
+variable "bucket" {
+  description = "The name of the GCS bucket in which the simple_example_project state is stored."
+  type        = string
+}
+
 variable "folder_id" {
   default     = ""
   description = "The ID of the folder in which the project will be provisioned."
@@ -28,6 +33,12 @@ variable "folder_id" {
 variable "gsuite_admin_email" {
   description = "The email of a GSuite super admin, used for pulling user directory information *and* sending notifications."
   type        = string
+}
+
+variable "prefix" {
+  description = "The prefix inside the GCS bucket."
+  type        = string
+  default     = null
 }
 
 variable "org_id" {

@@ -34,17 +34,14 @@ provider "random" {
   version = "~> 2.1"
 }
 
-module "project" {
-  source = "../project"
+data "terraform_remote_state" "simple_example_project" {
+  backend = "gcs"
 
-  providers {
-    google      = "google"
-    google-beta = "google-beta"
+  config = {
+    bucket = var.bucket
+
+    prefix = var.prefix
   }
-
-  billing_account = var.billing_account
-  folder_id       = var.folder_id
-  org_id          = var.org_id
 }
 
 provider "google" {
@@ -52,7 +49,7 @@ provider "google" {
 
   alias = "fixture"
 
-  credentials = module.project.service_account_private_key
+  credentials = data.terraform_remote_state.simple_example_project.service_account_private_key
 }
 
 provider "google-beta" {
@@ -60,7 +57,7 @@ provider "google-beta" {
 
   alias = "fixture"
 
-  credentials = module.project.service_account_private_key
+  credentials = data.terraform_remote_state.simple_example_project.service_account_private_key
 }
 
 provider "tls" {
@@ -85,10 +82,10 @@ module "bastion" {
     google-beta = "google-beta.fixture"
   }
 
-  network    = module.project.network
-  project_id = module.project.project_id
-  subnetwork = module.project.subnetwork
-  zone       = module.project.zone
+  network    = data.terraform_remote_state.simple_example_project.network
+  project_id = data.terraform_remote_state.simple_example_project.project_id
+  subnetwork = data.terraform_remote_state.simple_example_project.subnetwork
+  zone       = data.terraform_remote_state.simple_example_project.zone
 }
 
 module "forseti-install-simple" {
@@ -100,10 +97,10 @@ module "forseti-install-simple" {
   }
 
   gsuite_admin_email = var.gsuite_admin_email
-  network            = module.project.network
-  project_id         = module.project.project_id
-  region             = module.project.region
-  subnetwork         = module.project.subnetwork
+  network            = data.terraform_remote_state.simple_example_project.network
+  project_id         = data.terraform_remote_state.simple_example_project.project_id
+  region             = data.terraform_remote_state.simple_example_project.region
+  subnetwork         = data.terraform_remote_state.simple_example_project.subnetwork
   org_id             = var.org_id
   domain             = var.domain
 
