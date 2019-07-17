@@ -34,6 +34,10 @@ provider "random" {
   version = "~> 2.1"
 }
 
+terraform {
+  backend "gcs" {}
+}
+
 module "project_factory" {
   source  = "terraform-google-modules/project-factory/google"
   version = "~> 3.0"
