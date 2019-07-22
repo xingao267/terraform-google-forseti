@@ -58,6 +58,10 @@ output "forseti-cloudsql-connection-name" {
   description = "Forseti CloudSQL Connection String"
   value = "${module.server.forseti-cloudsql-connection-name}"
 }
+output "forseti-cai-storage-bucket" {
+  description = "Forseti CAI storage bucket"
+  value       = "${module.server.forseti-cai-storage-bucket}"
+}
 
 output "suffix" {
   description = "The random suffix appended to Forseti resources"

@@ -33,7 +33,10 @@ output "forseti-server-storage-bucket" {
   description = "Forseti Server storage bucket"
   value       = "${google_storage_bucket.server_config.id}"
 }
-
+output "forseti-cai-storage-bucket" {
+  description = "Forseti CAI storage bucket"
+  value       = "${google_storage_bucket.cai_export.0.id}"
+}
 output "forseti-cloudsql-connection-name" {
   description = "The connection string to the CloudSQL instance"
   value       = "${google_sql_database_instance.master.connection_name}"
