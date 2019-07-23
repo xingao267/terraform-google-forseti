@@ -2,17 +2,24 @@
 
 The Terraform Forseti module can be used to quickly install and configure [Forseti](https://forsetisecurity.org/) in a fresh cloud project.
 
+## Compatibility
+
+This module is meant for use with Terraform 0.12. If you haven't
+[upgraded][terraform-0.12-upgrade] and need a Terraform 0.11.x-compatible
+version of this module, the last released version intended for Terraform 0.11.x
+is [2.3.0][v2.3.0].
+
 ## Usage
 A simple setup is provided in the examples folder; however, the usage of the module within your own main.tf file is as follows:
 
 ```hcl
     provider "google" {
-      credentials = "${file("/path/to/credentials.json")}"
+      credentials = file("/path/to/credentials.json")
     }
 
     module "forseti" {
       source  = "terraform-google-modules/forseti/google"
-      version = "~> 2.0.0"
+      version = "~> 3.0"
 
       gsuite_admin_email = "superadmin@yourdomain.com"
       domain             = "yourdomain.com"
@@ -103,7 +110,7 @@ Then perform the following commands on the config folder:
 | forseti\_home | Forseti installation directory | string | `"$USER_HOME/forseti-security"` | no |
 | forseti\_repo\_url | Git repo for the Forseti installation | string | `"https://github.com/GoogleCloudPlatform/forseti-security"` | no |
 | forseti\_run\_frequency | Schedule of running the Forseti scans | string | `"0 */2 * * *"` | no |
-| forseti\_version | The version of Forseti to install | string | `"v2.16.0"` | no |
+| forseti\_version | The version of Forseti to install | string | `"v2.18.0"` | no |
 | forwarding\_rule\_enabled | Forwarding rule scanner enabled. | string | `"false"` | no |
 | forwarding\_rule\_violations\_should\_notify | Notify for forwarding rule violations | string | `"true"` | no |
 | group\_enabled | Group scanner enabled. | string | `"true"` | no |
@@ -113,7 +120,7 @@ Then perform the following commands on the config folder:
 | groups\_settings\_period | the period of max calls to the G Suite Groups API | string | `"1.1"` | no |
 | groups\_settings\_violations\_should\_notify | Notify for groups settings violations | string | `"true"` | no |
 | groups\_violations\_should\_notify | Notify for Groups violations | string | `"true"` | no |
-| gsuite\_admin\_email | G-Suite administrator email address to manage your Forseti installation | string | n/a | yes |
+| gsuite\_admin\_email | G-Suite administrator email address to manage your Forseti installation | string | `""` | yes |
 | iam\_disable\_polling | Whether to disable polling for IAM API | string | `"false"` | no |
 | iam\_max\_calls | Maximum calls that can be made to IAM API | string | `"90"` | no |
 | iam\_period | The period of max calls for the IAM API (in seconds) | string | `"1.0"` | no |
@@ -145,7 +152,7 @@ Then perform the following commands on the config folder:
 | logging\_period | The period of max calls for the Logging API (in seconds) | string | `"1.0"` | no |
 | network | The VPC where the Forseti client and server will be created | string | `"default"` | no |
 | network\_project | The project containing the VPC and subnetwork where the Forseti client and server will be created | string | `""` | no |
-| org\_id | GCP Organization ID that Forseti will have purview over | string | n/a | yes |
+| org\_id | GCP Organization ID that Forseti will have purview over | string | `""` | yes |
 | project\_id | Google Project ID that you want Forseti deployed into | string | n/a | yes |
 | resource\_enabled | Resource scanner enabled. | string | `"true"` | no |
 | resource\_violations\_should\_notify | Notify for resource violations | string | `"true"` | no |
@@ -192,9 +199,10 @@ Then perform the following commands on the config folder:
 
 ## Requirements
 ### Installation Dependencies
-- [Terraform](https://www.terraform.io/downloads.html) 0.11.x
-- [terraform-provider-google](https://github.com/terraform-providers/terraform-provider-google) plugin v1.12.0
- - [Python 3.7.x](https://www.python.org/getit/)
+- [Terraform](https://www.terraform.io/downloads.html) 0.12
+- [Terraform Provider for GCP][terraform-provider-google] plugin v2.11
+- [terraform-provider-template](https://github.com/terraform-providers/terraform-provider-template) plugin >= v2.0
+- [Python 3.7.x](https://www.python.org/getit/)
 - [terraform-docs](https://github.com/segmentio/terraform-docs/releases) (optional) 0.6.0
 
 ### Service Account
@@ -263,7 +271,7 @@ Utilizing a shared VPC via a host project is supported with the `-f` flag:
 ```
 
 ### Terraform
-Be sure you have the correct Terraform version (0.11.x), you can choose the binary here:
+Be sure you have the correct Terraform version (0.12), you can choose the binary here:
 - https://releases.hashicorp.com/terraform/
 
 Additionally, you will need to export `TF_WARN_OUTPUT_ERRORS=1` to work around a [known issue](https://github.com/hashicorp/terraform/issues/17862) with Terraform when running terraform destroy.
@@ -327,3 +335,7 @@ The project has the following folders and files:
 - (/variables.tf): all the variables for the module
 - (/test): all integration tests are located here
 - (/README.md): this file
+
+[v2.3.0]: https://registry.terraform.io/modules/terraform-google-modules/forseti/google/2.3.0
+[terraform-0.12-upgrade]: https://www.terraform.io/upgrade-guides/0-12.html
+[terraform-provider-google]: https://github.com/terraform-providers/terraform-provider-google
